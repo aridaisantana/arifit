@@ -1,38 +1,196 @@
-.App {
-  text-align: center;
+button {
+    color: #444444;
+    background: #F3F3F3;
+    border: 1px #DADADA solid;
+    padding: 5px 10px;
+    border-radius: 2px;
+    font-weight: bold;
+    font-size: 9pt;
+    outline: none;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+button:hover {
+    border: 1px #C6C6C6 solid;
+    box-shadow: 1px 1px 1px #EAEAEA;
+    color: #333333;
+    background: #F7F7F7;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+button:active {
+    box-shadow: inset 1px 1px 1px #DFDFDF;   
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+button.blue {
+    color: white;
+    background: #4C8FFB;
+    border: 1px #3079ED solid;
+    box-shadow: inset 0 1px 0 #80B0FB;
 }
 
-.App-link {
-  color: #61dafb;
+button.blue:hover {
+    border: 1px #2F5BB7 solid;
+    box-shadow: 0 1px 1px #EAEAEA, inset 0 1px 0 #5A94F1;
+    background: #3F83F1;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+button.blue:active {
+    box-shadow: inset 0 2px 5px #2370FE;   
+}
+
+.hero{
+    background: linear-gradient(to right, rgba(0,0,0,0.4), rgba(0,0,0,0.1)), url("./images/pic1.jpg");
+    height: 100vh;
+    background-position: center;
+    background-size: cover;
+    padding: 0.5rem calc((100vw - 1200px) / 2);
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.hero_content{
+    color: var(--white);
+    padding: 3rem 1rem;
+    line-height: 1;
+}
+
+.hero_content h1{
+    font-size: clamp(3rem, 8vw, 7rem);
+    text-transform: uppercase;
+    margin-bottom: 0.5rem;
+}
+
+.hero_content p{
+    font-size: clamp(1rem, 4vw, 2.5rem);
+    margin-bottom: 3rem;
+}
+
+.button{
+    
+    padding: 1rem 3rem;
+    text-decoration:none;
+    border:none;
+    background: var(--blue);
+    color: var(--white);
+    font-size: 1rem;
+    cursor: pointer;
+    outline: none;
+    transition: 0.3s ease;
+    border-radius: 4px;
+}
+
+.button:hover{
+    background: var(--red);
+    text-decoration:none;
+}
+
+.services {
+    padding: 8rem calc((100vw - 1200px) / 2);
+}
+
+.services_cointainer{
+    padding: 1rem;
+}
+
+.services_img{
+    float: right;
+    width: 100%;
+    height: 100%;
+
+}
+
+.topline{
+    color: var(--blue);
+    text-transform: uppercase;
+    font-weight:bold;
+    margin-bottom: 0.5rem;
+}
+
+.services_heading {
+    margin-bottom: 1rem;
+    font-size: clamp(2rem, 6v, 3rem);
+}
+
+.services_features{
+    list-style: none;
+}
+
+.services_feature {
+    margin-bottom: 1.5rem;
+    font-size: clamp(1rem, 5vw, 1.2rem);
+}
+
+.mddone{
+    margin-right: 0.5rem;
+    color: var(--blue);
+}
+
+.membership{
+    background: #1c1b1a;
+    color: white;
+    padding: 6rem calc((100vw - 1100px) / 2 );
+    text-align:center;
+}
+
+.membership h1{
+    margin-bottom: 1rem;
+    font-size: clamp(2rem, 5vw, 3rem);
+    padding: 0 1rem;
+    color: #106aec;
+}
+
+.membership_desc{
+    margin-bottom: 3rem;
+    font-size:clamp(1rem, 3vw, 1.5rem);
+    padding: 1rem;
+}
+
+.membership_wrapper{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 1rem;
+}
+
+.membership_card{
+    padding: 2rem;
+    min-height: 450px;
+    width: 325px;
+    background: var(--white);
+    color: black;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    text-align:center;
+}
+
+.membership_perks{
+    min-height: 150px;
+}
+
+.membership_card p{
+    margin-bottom: 1rem;
+}
+
+.card-icon{
+    font-size: 3rem;
+    margin-bottom: 2rem;
+    color: blue;
+}
+
+.membership_card h3 {
+    font-size: clamp(1rem, 5vw, 2rem);
+}
+
+@media screen and (max-width: 1100px){
+    .membership_wrapper{
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .membership_card{
+        width: 90%;
+        margin-bottom: 2rem;
+    }
 }
