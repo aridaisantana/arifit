@@ -20,7 +20,7 @@
   },
   "scripts": {
     "start": "node api/server.js",
-    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install npm && npm run build",
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install npm start && npm run build",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
