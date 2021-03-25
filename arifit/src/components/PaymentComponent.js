@@ -16,7 +16,6 @@ async function registerUser(credentials) {
 function PaymentComponent({nombre, email, password, rol, toggleModal }) {
     
     const [redirect, setRedirect] = useState(false);
-
     const redirectToPage = () => setRedirect(true) ; 
 
     const paymentRequest = {
