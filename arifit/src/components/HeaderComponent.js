@@ -54,8 +54,8 @@ function Header ({user, setUser}){
                 </Modal>
             </>
         );
-    }else{
-
+    }else {
+        
         const userAccount = user.usuario.rol;
         
         return(
@@ -76,7 +76,7 @@ function Header ({user, setUser}){
                         <Nav className="ml-auto" navbar>
                             <NavItem>
                                 <button className="blue" onClick={() => {
-                                    setUser({});
+                                    setUser(null);
                                     localStorage.clear();
                                 }}>
                                     <span className="fa fa-sign-in fa-lg"></span>Cerrar sesión
