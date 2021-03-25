@@ -45,6 +45,7 @@ app.post('/login', function (req, res) {
         })
 
         res.json({
+            usuario: usuarioDB,
             token
         })
 

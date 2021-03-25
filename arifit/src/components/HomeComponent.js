@@ -1,13 +1,14 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 import {MdDoneAll} from 'react-icons/md';
 import image from '../images/pic2.jpg';
 import {BiDumbbell} from "react-icons/bi";
 import {FaDumbbell} from "react-icons/fa";
 import {FcSportsMode} from "react-icons/fc";
+import Footer from "./FooterComponent";
 
-function HomeComponent({token}) {
 
-    //if( token){
+function HomeComponent({user, setUser}) {
+
         return (
             <>
                 <div className="hero">
@@ -49,7 +50,7 @@ function HomeComponent({token}) {
                                 <p>Consulta de dudas</p>
                                 <p>15€ al mes</p>
                             </div>
-                            <a href="/" className="button">Únete</a>
+                            <a href="/register/basic" className="button">Únete</a>
                         </div>
                         <div className="membership_card">
                             <div className="membership_title">
@@ -64,7 +65,7 @@ function HomeComponent({token}) {
                                 <p>30€ al mes</p>
 
                             </div>
-                            <a href="/" className="button">Únete</a>
+                            <a href="/register/pro" className="button">Únete</a>
                         </div>
                         <div className="membership_card">
                             <div className="membership_title">
@@ -79,17 +80,14 @@ function HomeComponent({token}) {
                                 <p>45€ al mes</p>
 
                             </div>
-                            <a href="/" className="button">Únete</a>
+                            <a href="/register/premium" className="button">Únete</a>
                         </div>
                     </div>
                 </div>
+                <Footer />
             </>
         )
-    //}else{
-     //   return(
-    //        <h1>Please log in</h1>
-      //  )
-    //}
+    
 }
 
-export default HomeComponent
+export default HomeComponent;

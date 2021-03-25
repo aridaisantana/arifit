@@ -2,7 +2,6 @@ import React from 'react'
 import {useState} from 'react';
 import PropTypes from 'prop-types';
 
-
 async function loginUser(credentials) {
   return fetch('http://localhost:3080/login', {
     method: 'POST',
@@ -14,7 +13,7 @@ async function loginUser(credentials) {
     .then(data => data.json())
 }
 
-export default function LoginForm({ setToken, setIsModalOpen, isModalOpen }) {
+export default function LoginForm({setUser, setIsModalOpen}) {
     
 
     const [email, setEmail] = useState("");
@@ -22,33 +21,36 @@ export default function LoginForm({ setToken, setIsModalOpen, isModalOpen }) {
 
     const handleSubmit = async e => {
         e.preventDefault();
-        const token = await loginUser({
+        const user = await loginUser({
           email,
           password
         });
+
+        console.log(user);
+        setUser(user);
+        localStorage.setItem('user', user);
+        setIsModalOpen(false);
         
-        setToken(token);
-        setIsModalOpen(!isModalOpen);
     }
 
 
     return (
-        <div>
-            <form onSubmit={(e) => handleSubmit(e)}>
-                <input type="email" name="email" onChange={(e) => {
+        <div style={{textAlign: 'center'}}>
+          <form onSubmit={(e) => handleSubmit(e)} >
+            <input type="text" id="login" className="form-button-submit-reset text-password fadeIn second" name="email" placeholder="Correo" onChange={(e) => {
                     setEmail(e.target.value);
                 }}/>
-                <input type="password" name="password" onChange={(e) =>{
+            <input type="password" id="password" className="form-button-submit-reset text-password fadeIn third" name="password" placeholder="Contraseña" onChange={(e) =>{
                     setPassword(e.target.value);
                 }}/>
-                <input type="submit" value="submit" />
-            </form>
+            <input type="submit" className="form-button-submit-reset fadeIn fourth" value="Iniciar" />
+          </form>
         </div>
     )
 }
 
 
 LoginForm.propTypes = {
-    setToken: PropTypes.func.isRequired
+    setUser: PropTypes.func.isRequired
   };
   
