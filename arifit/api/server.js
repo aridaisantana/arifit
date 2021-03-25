@@ -14,10 +14,10 @@ app.use(bodyParser.json());
 
 app.use(require('./routes/index'));
 
-app.use(express.static(path.join(__dirname, 'build')))
+app.use(express.static(path.join(__dirname, '../build')))
 
 app.get('*', (req, res) => {
-  res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
+  res.sendFile(path.resolve(__dirname, '../build/index.html'));
 });
 
 const connection = "mongodb+srv://arifit:donocreditos1.@cluster0.r2veq.mongodb.net/arifit?retryWrites=true&w=majority";
