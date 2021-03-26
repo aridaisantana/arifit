@@ -3,6 +3,7 @@ import { Navbar, NavbarBrand, Nav, NavbarToggler, Collapse, NavItem, Modal, Moda
 import { NavLink, Link } from 'react-router-dom';
 import LoginForm from "./LoginFormComponent";
 import {FaRegUserCircle} from 'react-icons/fa';
+import {AiOutlineHome} from 'react-icons/ai';
 
 function Header ({user, setUser}){
 
@@ -30,7 +31,7 @@ function Header ({user, setUser}){
                         <Nav navbar>
                             <NavItem>
                                 <NavLink className="nav-link" to="/home">
-                                    <span className="text-primary">Home</span> 
+                                    <AiOutlineHome/><span className="text-primary">Inicio</span> 
                                 </NavLink>
                             </NavItem>
                         </Nav>
