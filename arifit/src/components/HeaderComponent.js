@@ -31,7 +31,7 @@ function Header ({user, setUser}){
                         <Nav navbar>
                             <NavItem>
                                 <NavLink className="nav-link" to="/home">
-                                    <AiOutlineHome/><span className="text-primary">Inicio</span> 
+                                    <AiOutlineHome style={{height:"30px", width:"30px", marginRight:"5px"}} />
                                 </NavLink>
                             </NavItem>
                         </Nav>
@@ -85,7 +85,7 @@ function Header ({user, setUser}){
                             </NavItem>
                         </Nav>
                     </Collapse>
-                    <Link to={`/service/${userAccount.toLowerCase()}`}><FaRegUserCircle style={{height:"50px", width:"50px", marginLeft:"20px"}}/></Link>
+                    <Link to={`/service/${userAccount.toLowerCase()}`}><FaRegUserCircle style={{height:"40px", width:"40px", marginLeft:"20px"}}/></Link>
                 </div>
                 </Navbar>
                 <Modal className="text-primary" isOpen={isModalOpen} toggle={toggleModal}>

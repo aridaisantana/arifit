@@ -17,7 +17,7 @@ app.use(require('./routes/index'));
 
 app.use(express.static(path.join(__dirname, '../build')))
 
-const connection = "mongodb+srv://arifit:donocreditos1.@cluster0.r2veq.mongodb.net/arifit?retryWrites=true&w=majority";
+const connection = process.env.DB_URI
 mongoose.connect(connection,{ useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false})
     .then(() => console.log("Database Connected Successfully"))
     .catch(err => console.log(err));

@@ -4,8 +4,9 @@ import {RiLockPasswordLine} from 'react-icons/ri';
 import Payment from './PaymentComponent';
 import {Modal, ModalBody, ModalHeader} from 'reactstrap';
 import {useParams} from 'react-router-dom';
+import LoginForm from './LoginFormComponent';
 
-export default function Register() {
+export default function Register({setUser}) {
 
   
   const [nombre, setNombre] = useState("");
@@ -13,9 +14,14 @@ export default function Register() {
   const [password, setPassword] = useState("");
   const [matchPassword, setMatchPassword] = useState("");
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isLoginOpen, setIsLoginOpen] = useState(false);
   
   const toggleModal = () => {
     setIsModalOpen(!isModalOpen);
+  }
+
+  const toggleLogin = () => {
+    setIsLoginOpen(!isLoginOpen);
   }
 
   const {rol} = useParams();
@@ -101,7 +107,7 @@ export default function Register() {
                             </div>
 
                             <div className="text-center w-100">
-                                <p className="text-muted font-weight-bold">¿Ya estás registrado?  <a href="#" className="text-primary ml-2">Inicia sesión </a></p>
+                                <p className="text-muted font-weight-bold">¿Ya estás registrado?  <a href="#" className="text-primary ml-2" onClick={() => toggleLogin()}>Inicia sesión </a></p>
                             </div>
 
                         </div>
@@ -113,6 +119,12 @@ export default function Register() {
                     <ModalHeader toggle={toggleModal} cssModule={{'modal-title': 'w-100 text-center'}}>Finalizar compra</ModalHeader>
                     <ModalBody>
                         <Payment nombre={nombre} email={email} password={password} rol={rol.toUpperCase()} toggleModal={toggleModal}/>
+                    </ModalBody>
+        </Modal>
+        <Modal className="text-primary" isOpen={isLoginOpen} toggle={toggleLogin}>
+                    <ModalHeader toggle={toggleLogin} cssModule={{'modal-title': 'w-100 text-center'}}>Iniciar sesión</ModalHeader>
+                    <ModalBody>
+                      <LoginForm setUser={setUser} setIsModalOpen={setIsLoginOpen} isModalOpen={isLoginOpen}/>
                     </ModalBody>
         </Modal>
     </>

@@ -16,7 +16,7 @@ function MainComponent() {
             <Header user={user} setUser={setUser} />
             <Switch>
                 <Route path="/home" component={() => <HomeComponent user={user} setUser={setUser}/>}/>
-                <Route exact path="/register/:rol" component={() => <Register />}/>
+                <Route exact path="/register/:rol" component={() => <Register setUser={setUser}/>}/>
                 <Route exact path="/registrocompleto" component={Registered} />
                 <Route exact path="/service/:rol" component={Services} />
                 <Redirect to="/home" />
