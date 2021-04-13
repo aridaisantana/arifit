@@ -18,7 +18,7 @@ app.use(require('./routes/index'));
 app.use(express.static(path.join(__dirname, '../build')))
 
 const connection = process.env.DB_URI
-mongoose.connect(connection,{ useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false})
+mongoose.connect(connection,{ useNewUrlParser: true})
     .then(() => console.log("Database Connected Successfully"))
     .catch(err => console.log(err));
 
@@ -27,5 +27,5 @@ app.get('*', (req, res) => {
 });
 
 app.listen(process.env.PORT, ()=> {
-    console.log("Escuchando en puerto 3000");
+    console.log("Escuchando en puerto 5000");
 })

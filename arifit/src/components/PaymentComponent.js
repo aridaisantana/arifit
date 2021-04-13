@@ -3,7 +3,7 @@ import GooglePayButton from "@google-pay/button-react";
 import {Redirect} from 'react-router-dom';
 
 async function registerUser(credentials) {
-    return fetch('http://localhost:3080/register', {
+    return fetch('/register', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
