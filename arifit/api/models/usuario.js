@@ -28,6 +28,17 @@ let usuarioSchema = new Schema({
         default: 'BASIC',
         required: [true],
         enum: rolesValidos
+    },
+    weights: {
+        type: Array
+    },
+    diet: {
+        type: String,
+        data: Buffer
+    },
+    training: {
+        type: String,
+        data: Buffer
     }
 });
 

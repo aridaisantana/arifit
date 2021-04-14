@@ -28,7 +28,7 @@ export default function LoginForm({setUser, setIsModalOpen}) {
 
         console.log(user);
         setUser(user);
-        localStorage.setItem('user', user);
+        localStorage.setItem('loggedUser', JSON.stringify(user));
         setIsModalOpen(false);
         
     }
@@ -37,10 +37,17 @@ export default function LoginForm({setUser, setIsModalOpen}) {
     return (
         <div style={{textAlign: 'center'}}>
           <form onSubmit={(e) => handleSubmit(e)} >
-            <input type="text" id="login" className="form-button-submit-reset text-password fadeIn second" name="email" placeholder="Correo" onChange={(e) => {
+            <input 
+              type="text" 
+              id="login" 
+              className="form-button-submit-reset text-password fadeIn second" 
+              name="email" 
+              value={email} 
+              placeholder="Correo" 
+              onChange={(e) => {
                     setEmail(e.target.value);
-                }}/>
-            <input type="password" id="password" className="form-button-submit-reset text-password fadeIn third" name="password" placeholder="Contraseña" onChange={(e) =>{
+            }}/>
+            <input type="password" id="password" className="form-button-submit-reset text-password fadeIn third" value={password} name="password" placeholder="Contraseña" onChange={(e) =>{
                     setPassword(e.target.value);
                 }}/>
             <input type="submit" className="form-button-submit-reset fadeIn fourth" value="Iniciar" />

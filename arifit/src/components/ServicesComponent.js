@@ -1,16 +1,17 @@
 import React from 'react'
 
-function Services({setUser}) {
+function Services({user}) {
     
-    const loggedInUser = localStorage.getItem("user");
-    if(loggedInUser){
+    const userLogged = () =>{
         return (
         
-            <div>
-                <h1>Bienvenido</h1>
+            <div className="container">
+                <h1 style={{textAlign: "center", marginTop:"15px", fontFamily:"sans-serif", fontSize: "30px"}}>Perfil de {user.usuario.nombre}</h1>
             </div>
         )
-    }else{
+    }
+
+    const userNotLogged = () => {
         return (
         
             <div>
@@ -18,6 +19,14 @@ function Services({setUser}) {
             </div>
         )
     }
+    
+    return(
+        <div>
+            {
+                user ? userLogged() : userNotLogged()
+            }
+        </div>
+    )
 
     
 }

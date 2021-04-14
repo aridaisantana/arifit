@@ -1,5 +1,5 @@
 import React from 'react';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Switch, Route, Redirect} from 'react-router-dom';
 import Header from "./HeaderComponent";
 import HomeComponent from "./HomeComponent";
@@ -11,6 +11,14 @@ function MainComponent() {
 
     const [user, setUser] = useState(null);
 
+    useEffect(() => {
+        const loggedUserJson = window.localStorage.getItem('loggedUser');
+        if(loggedUserJson){
+            const user = JSON.parse(loggedUserJson);
+            setUser(user);
+        }
+    }, [])
+
     return (
         <div id="wrapper">
             <Header user={user} setUser={setUser} />
@@ -18,7 +26,7 @@ function MainComponent() {
                 <Route path="/home" component={() => <HomeComponent user={user} setUser={setUser}/>}/>
                 <Route exact path="/register/:rol" component={() => <Register setUser={setUser}/>}/>
                 <Route exact path="/registrocompleto" component={Registered} />
-                <Route exact path="/service/:rol" component={Services} />
+                <Route exact path="/service/:rol" component={() => <Services user={user} />} />
                 <Redirect to="/home" />
             </Switch>
         </div>

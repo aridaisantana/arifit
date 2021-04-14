@@ -6,6 +6,7 @@ const bodyParser = require('body-parser');
 const path = require('path');
 const cors = require('cors');
 
+
 // parse application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: false }));
 
@@ -18,7 +19,7 @@ app.use(require('./routes/index'));
 app.use(express.static(path.join(__dirname, '../build')))
 
 const connection = process.env.DB_URI
-mongoose.connect(connection,{ useNewUrlParser: true})
+mongoose.connect(connection,{ useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false})
     .then(() => console.log("Database Connected Successfully"))
     .catch(err => console.log(err));
 
@@ -27,5 +28,5 @@ app.get('*', (req, res) => {
 });
 
 app.listen(process.env.PORT, ()=> {
-    console.log("Escuchando en puerto 5000");
+  console.log("Escuchando en puerto" + process.env.PORT);
 })

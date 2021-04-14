@@ -17,8 +17,10 @@ function Header ({user, setUser}){
     const toggleModal = () => {
         setIsModalOpen(!isModalOpen);
     }
-        
-    if(!user){
+
+    console.log(user);
+    
+    const renderUnloggedNav = () => {
         return(
             <>
                 
@@ -55,8 +57,9 @@ function Header ({user, setUser}){
                 </Modal>
             </>
         );
-    }else {
-        
+    }
+
+    const renderLoggedNav = () => {
         const userAccount = user.usuario.rol;
         
         return(
@@ -66,7 +69,7 @@ function Header ({user, setUser}){
                     <NavbarToggler onClick={toggleNav} />
                     <NavbarBrand className="mr-auto" href="/">
                     </NavbarBrand>
-                    <Collapse isOpen={isNavOpen} navbar>   
+                    <Collapse isOpen={isNavOpen} navbar style={{textAlign: 'center', justifyContent: 'space-between', alignItems: "center"}}>   
                         <Nav navbar>
                             <NavItem>
                                 <NavLink className="nav-link" to="/home">
@@ -74,6 +77,7 @@ function Header ({user, setUser}){
                                 </NavLink>
                             </NavItem>
                         </Nav>
+                        <hr />
                         <Nav className="ml-auto" navbar>
                             <NavItem>
                                 <button className="blue" onClick={() => {
@@ -97,6 +101,16 @@ function Header ({user, setUser}){
             </>
         );
     }
+         
+    return(
+        <div>
+        {
+            user
+                ? renderLoggedNav()
+                :  renderUnloggedNav()
+        }
+        </div>
+    );
     
 
     

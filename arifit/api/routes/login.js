@@ -3,7 +3,6 @@ const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const Usuario = require('./../models/usuario');
 const app = express();
-const path = require('path');
 
 app.post('/login', function (req, res) {
     
@@ -22,7 +21,7 @@ app.post('/login', function (req, res) {
 
             if (!usuarioDB) {      
         
-                return res.status(400).json({
+                return res.status(401).json({
                     ok: false,
                     err: {
                         message: "Usuario o contraseña incorrectos"
@@ -32,7 +31,7 @@ app.post('/login', function (req, res) {
 
         if (!bcrypt.compareSync(body.password, usuarioDB.password)){      
             
-            return res.status(400).json({
+            return res.status(401).json({
                 ok: false,
                 err: {
                     message: "Usuario o contraseña incorrectos"
@@ -40,7 +39,7 @@ app.post('/login', function (req, res) {
             });   
         }
 
-        let token = jwt.sign({usuario: usuarioDB}, process.env.SEED_AUTENTICACION, {
+        let token = jwt.sign({usuario: usuarioDB}, process.env.SECRET, {
             expiresIn: process.env.CADUCIDAD_TOKEN
         })
 
