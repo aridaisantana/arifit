@@ -67,18 +67,18 @@ function Header ({user, setUser}){
         
         return(
             <>
-                <Navbar style={{backgroundColor: '#f1f1f1'}} expand="md">
+                <Navbar style={{backgroundColor: '#f1f1f1'}} light expand="md">
                 <div className="container">
-                    <NavbarToggler onClick={toggleNav} />
+                    <NavbarToggler onClick={toggleNav} className="blue"/>
                     <Collapse isOpen={isNavOpen} navbar style={{textAlign: 'center', justifyContent: 'space-between', alignItems: "center"}}>   
                         <Nav navbar>
                             <NavItem>
-                                <NavLink className="nav-link" to="/home">
+                                <NavLink className="nav-link" style={{color:"#4C8FFB"}} to="/home">
                                     <AiOutlineHome style={{height:"30px", width:"30px", marginRight:"5px"}} />
                                 </NavLink>
                             </NavItem>
                             <NavItem>
-                                 <NavLink className="nav-link" to="/aboutus">
+                                 <NavLink className="nav-link" style={{color:"#4C8FFB"}} to="/aboutus">
                                     Sobre nosotros
                                 </NavLink>
                             </NavItem>
