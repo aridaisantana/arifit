@@ -24,24 +24,27 @@ function Header ({user, setUser}){
         return(
             <>
                 
-                <Navbar color="light" light expand="sm">
+                <Navbar style={{backgroundColor: '#f1f1f1'}} light expand="md">
                 <div className="container">
-                    <NavbarToggler onClick={toggleNav} />
-                    <NavbarBrand className="mr-auto" href="/">
-                    </NavbarBrand>
-                    <Collapse isOpen={isNavOpen} navbar style={{textAlign: 'center', justifyContent: 'space-between'}}>
+                    <NavbarToggler onClick={toggleNav} className="blue"/>
+                    <Collapse isOpen={isNavOpen} navbar style={{textAlign: 'center', justifyContent: 'space-between', alignItems: "center"}} >   
                         <Nav navbar>
                             <NavItem>
-                                <NavLink className="nav-link" to="/home">
+                                <NavLink className="nav-link" style={{color:"#4C8FFB"}} to="/home">
                                     <AiOutlineHome style={{height:"30px", width:"30px", marginRight:"5px"}} />
+                                </NavLink>
+                            </NavItem>
+                            <NavItem>
+                                 <NavLink className="nav-link" style={{color:"#4C8FFB"}} to="/aboutus">
+                                    Sobre nosotros
                                 </NavLink>
                             </NavItem>
                         </Nav>
                         <hr />
                         <Nav className="ml-auto" navbar>
                             <NavItem>
-                                <button className="blue" onClick={toggleModal} >
-                                    Iniciar sesión
+                                <button className="blue" onClick={() => toggleModal()}>
+                                    <span className="fa fa-sign-in fa-lg"></span>Iniciar sesión
                                 </button>
                             </NavItem>
                         </Nav>
@@ -67,18 +70,21 @@ function Header ({user, setUser}){
                 <Navbar style={{backgroundColor: '#f1f1f1'}} expand="md">
                 <div className="container">
                     <NavbarToggler onClick={toggleNav} />
-                    <NavbarBrand className="mr-auto" href="/">
-                    </NavbarBrand>
                     <Collapse isOpen={isNavOpen} navbar style={{textAlign: 'center', justifyContent: 'space-between', alignItems: "center"}}>   
                         <Nav navbar>
                             <NavItem>
                                 <NavLink className="nav-link" to="/home">
-                                    <span className="text-primary"></span> Home
+                                    <AiOutlineHome style={{height:"30px", width:"30px", marginRight:"5px"}} />
+                                </NavLink>
+                            </NavItem>
+                            <NavItem>
+                                 <NavLink className="nav-link" to="/aboutus">
+                                    Sobre nosotros
                                 </NavLink>
                             </NavItem>
                         </Nav>
                         <hr />
-                        <Nav className="ml-auto" navbar>
+                        <Nav className="ml-auto mr-2" navbar>
                             <NavItem>
                                 <button className="blue" onClick={() => {
                                     setUser(null);
@@ -88,16 +94,11 @@ function Header ({user, setUser}){
                                 </button>
                             </NavItem>
                         </Nav>
+                        <Link to={`/service/${userAccount.toLowerCase()}`}><FaRegUserCircle style={{height:"40px", width:"40px", marginTop:"5px"}}/></Link>
                     </Collapse>
-                    <Link to={`/service/${userAccount.toLowerCase()}`}><FaRegUserCircle style={{height:"40px", width:"40px", marginLeft:"20px"}}/></Link>
+                   
                 </div>
                 </Navbar>
-                <Modal className="text-primary" isOpen={isModalOpen} toggle={toggleModal}>
-                    <ModalHeader toggle={toggleModal} cssModule={{'modal-title': 'w-100 text-center'}}>Cerrar sesión</ModalHeader>
-                    <ModalBody>
-                      <LoginForm setUser={setUser} setIsModalOpen={setIsModalOpen}/>
-                    </ModalBody>
-                </Modal>
             </>
         );
     }

@@ -26,9 +26,8 @@ export default function LoginForm({setUser, setIsModalOpen}) {
           password
         });
 
-        console.log(user);
         setUser(user);
-        localStorage.setItem('loggedUser', JSON.stringify(user));
+        window.localStorage.setItem('loggedUser', JSON.stringify(user));
         setIsModalOpen(false);
         
     }

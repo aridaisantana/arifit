@@ -6,6 +6,7 @@ import HomeComponent from "./HomeComponent";
 import Register from "./RegisterComponent";
 import Registered from "./RegisteredOkComponent";
 import Services from "./ServicesComponent";
+import About from "./AboutComponent";
 
 function MainComponent() {
 
@@ -24,6 +25,7 @@ function MainComponent() {
             <Header user={user} setUser={setUser} />
             <Switch>
                 <Route path="/home" component={() => <HomeComponent user={user} setUser={setUser}/>}/>
+                <Route exact path="/aboutus" component={About} />
                 <Route exact path="/register/:rol" component={() => <Register setUser={setUser}/>}/>
                 <Route exact path="/registrocompleto" component={Registered} />
                 <Route exact path="/service/:rol" component={() => <Services user={user} />} />
