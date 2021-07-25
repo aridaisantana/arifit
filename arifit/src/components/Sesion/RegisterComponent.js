@@ -5,6 +5,8 @@ import Payment from './PaymentComponent';
 import {Modal, ModalBody, ModalHeader} from 'reactstrap';
 import {useParams} from 'react-router-dom';
 import LoginForm from './LoginFormComponent';
+import image from "../../images/register.svg";
+
 
 export default function Register({setUser}) {
 
@@ -38,7 +40,7 @@ export default function Register({setUser}) {
         <div className="container">
             <div className="row py-5 mt-4 align-items-center">
                 <div className="col-md-5 pr-lg-5 mb-5 mb-md-0">
-                    <img src="https://res.cloudinary.com/mhmd/image/upload/v1569543678/form_d9sh6m.svg" alt="Registro" className="img-fluid mb-3 d-none d-md-block" />
+                    <img src={image} alt="Registro" className="img-fluid mb-3 d-none d-md-block" />
                     <h1>Crear una cuenta</h1>
                     <p className="font-italic text-muted mb-0"></p>
                     <p className="font-italic text-muted">Gracias por confiar en nosotros.</p>

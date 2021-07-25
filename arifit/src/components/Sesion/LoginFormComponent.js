@@ -1,4 +1,5 @@
 import React from 'react'
+import { useHistory } from "react-router-dom";
 import {useState} from 'react';
 import PropTypes from 'prop-types';
 
@@ -19,6 +20,8 @@ export default function LoginForm({setUser, setIsModalOpen}) {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
 
+    let history = useHistory();
+
     const handleSubmit = async e => {
         e.preventDefault();
         const user = await loginUser({
@@ -35,6 +38,7 @@ export default function LoginForm({setUser, setIsModalOpen}) {
           setUser(user);
           window.localStorage.setItem('loggedUser', JSON.stringify(user));
           setIsModalOpen(false);
+          history.push(`/service/${user.usuario.rol.toLowerCase()}`);
         }
         
         

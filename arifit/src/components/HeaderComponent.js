@@ -1,7 +1,7 @@
 import { useState, Fragment } from 'react';
 import { Navbar, NavbarBrand, Nav, NavbarToggler, Collapse, NavItem, Modal, ModalHeader, ModalBody } from 'reactstrap';
 import { NavLink, Link } from 'react-router-dom';
-import LoginForm from "./LoginFormComponent";
+import LoginForm from "./Sesion/LoginFormComponent";
 import {FaRegUserCircle} from 'react-icons/fa';
 import {AiOutlineHome} from 'react-icons/ai';
 
