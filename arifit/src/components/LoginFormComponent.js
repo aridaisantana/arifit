@@ -26,9 +26,17 @@ export default function LoginForm({setUser, setIsModalOpen}) {
           password
         });
 
-        setUser(user);
-        window.localStorage.setItem('loggedUser', JSON.stringify(user));
-        setIsModalOpen(false);
+        var loginErrorSpan = document.querySelector("#loginError");
+
+        if(user.ok === false){
+          loginErrorSpan.textContent = "Correo o contraseña incorrectos";
+        }else{
+          loginErrorSpan.textContent = "";
+          setUser(user);
+          window.localStorage.setItem('loggedUser', JSON.stringify(user));
+          setIsModalOpen(false);
+        }
+        
         
     }
 
@@ -51,6 +59,7 @@ export default function LoginForm({setUser, setIsModalOpen}) {
                 }}/>
             <input type="submit" className="form-button-submit-reset fadeIn fourth" value="Iniciar" />
           </form>
+          <span id="loginError" style={{color:"red"}}></span>
         </div>
     )
 }

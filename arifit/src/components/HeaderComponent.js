@@ -63,8 +63,9 @@ function Header ({user, setUser}){
     }
 
     const renderLoggedNav = () => {
+
         const userAccount = user.usuario.rol;
-        
+            
         return(
             <>
                 <Navbar style={{backgroundColor: '#f1f1f1'}} light expand="md">
@@ -96,7 +97,7 @@ function Header ({user, setUser}){
                         </Nav>
                         <Link to={`/service/${userAccount.toLowerCase()}`}><FaRegUserCircle style={{height:"40px", width:"40px", marginTop:"5px"}}/></Link>
                     </Collapse>
-                   
+                            
                 </div>
                 </Navbar>
             </>
