@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react'
+import React from 'react'
 import {MdDoneAll} from 'react-icons/md';
 import image from '../images/pic2.jpg';
 import {BiDumbbell} from "react-icons/bi";

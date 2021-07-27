@@ -1,14 +1,32 @@
 import React from 'react'
+import AddWeights from './AddWeightsComponent';
 
 function Services({user}) {
     
+
     const userLogged = () =>{
-        return (
         
-            <div className="container">
+        return (
+            <>
                 <h1 style={{textAlign: "center", marginTop:"15px", fontFamily:"sans-serif", fontSize: "30px"}}>Perfil de {user.usuario.nombre}</h1>
-            </div>
-        )
+                <div id="servicesContainer">
+                    <div className="container-xl">
+                        <div className="row">
+                            <div className="col-sm-5 col-xs-12 mb-4 mt-2">
+                                <AddWeights user={user}/>
+                            </div>
+                            <div className="col-sm-5 col-xs-12 mb-4 mt-2">
+                                
+                            </div>
+                        </div>
+                        <div className="row">
+                            
+                        </div>
+                    </div>
+                </div>
+            </>
+            
+        );
     }
 
     const userNotLogged = () => {
