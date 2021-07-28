@@ -29,9 +29,16 @@ let usuarioSchema = new Schema({
         required: [true],
         enum: rolesValidos
     },
-    weights: {
-        type: Array
+    created: {
+        type: Date,
+        default: Date.now
     },
+    weights: [ 
+        {
+            weight : {type: Array}, 
+            date : { type: Date, default: Date.now }
+        }
+    ],
     diet: {
         type: String,
         data: Buffer
@@ -40,6 +47,7 @@ let usuarioSchema = new Schema({
         type: String,
         data: Buffer
     }
+    
 });
 
 usuarioSchema.methods.toJSON = function() {   

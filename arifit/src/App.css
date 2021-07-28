@@ -340,9 +340,25 @@ button.blue:active {
 
   #updateInformation{
     border-radius: 5%;
-    background-color: rgba(124, 173, 194, 0.1);
+    background-color: rgba(82, 179, 227, 0.3);
   }
 
+  .hidden{
+    display: none;
+  }
+
+  .fileLabel{
+    background-color: rgba(169, 67, 224, 0.3);
+    border-radius: 10px;
+    border: 1px solid;
+    padding: 4px;
+    margin-top: 4px;
+  }
+
+  .fileLabel:hover{
+    
+    background-color:rgba(169, 67, 224, 0.7);
+  }
 
 @media screen and (max-width: 1100px){
     .membership_wrapper{

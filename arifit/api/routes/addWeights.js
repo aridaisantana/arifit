@@ -11,17 +11,25 @@ const getDate = () => {
     ("00" + date.getHours()).slice(-2) + ":" +
     ("00" + date.getMinutes()).slice(-2) + ":" +
     ("00" + date.getSeconds()).slice(-2);
+    return dateStr;
 }
 
 app.post('/addWeights', function (req, res) {  
     
     let body = req.body;
     let { email, newWeight } = body;
+
     
-    
-    Usuario.findOneAndUpdate({email: email}, {$push:{weights: parseInt(newWeight)}}, (err, doc) => {
+    Usuario.findOneAndUpdate({email: email}, {$push:{weights: {weight: parseInt(newWeight)}}}, (err, doc) => {
         if (err) {
-            console.log("Something wrong when updating data!");
+            console.log("Something wrong when updating data!" + err);
+            res.send(
+                {
+                    ok:false,
+                    error:err
+
+                }
+            )
         }
 
         console.log(doc);

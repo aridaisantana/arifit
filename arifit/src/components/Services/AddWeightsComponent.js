@@ -11,7 +11,7 @@ async function addWeights(credentials) {
         .then(data => data.json())
 }
 
-const AddWeights = ({user}) => {
+const AddWeights = ({user, updateWeights, setUpdateWeights}) => {
 
     const [newWeight, setNewWeight] = useState(30);
 
@@ -23,18 +23,18 @@ const AddWeights = ({user}) => {
         
         if(sendedWeight.ok === true){
             alert("works fine");
-            console.log(sendedWeight);
+            setUpdateWeights(!updateWeights);
         }
     }
 
     return ( 
         <div>
             <form id="updateInformation" onSubmit={(e) => handleSubmit(e)}>
-                <div className="text-center">
-                    <h4>Actualizar peso y fotos</h4>
+                <div className="text-center p-3">
+                    <h4 style={{color:"rgba(169, 67, 224, 0.8)"}}>Actualizar Peso</h4>
                     <label>Inserte su nuevo peso: </label>
                     <input 
-                    style={{width:"40%", borderRadius:"10%", borderColor:"steelblue"}} 
+                    style={{width:"30%", borderRadius:"10%", borderColor:"steelblue"}} 
                     name="weight"
                     value={newWeight}
                     onChange={(e) => {
@@ -44,10 +44,10 @@ const AddWeights = ({user}) => {
                     min="30" 
                     required
                     />
-                    <label>Suba Imágenes de su cambio:</label>
-                    <input name="photoProgress" type="file" />
-                    <div className="mt-5">
-                        <input type="submit" value="Actualizar Información" />
+                    <input type="file" id="files" className="hidden"/>
+                    <label className="fileLabel" htmlFor="files">Subir imagen del cambio</label>
+                    <div className="mt-3">
+                        <input type="submit" className="form-button-submit-reset fourth" value="Actualizar Información" />
                     </div>
                 </div>
             </form>
