@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import {Modal, ModalBody, ModalHeader} from 'reactstrap';
 import LoginForm from './LoginFormComponent';
+import Header from "../HeaderComponent";
 
-function RegisteredOkComponent({setUser}) {
+function RegisteredOkComponent({user, setUser}) {
 
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [isLoginOpen, setIsLoginOpen] = useState(false);
@@ -16,6 +17,8 @@ function RegisteredOkComponent({setUser}) {
     }
 
     return (
+      <>
+        <Header user={user} setUser={setUser} />
         <div className="jumbotron text-center">
             <h1 className="display-3">¡Gracias por confiar en Arifit!</h1>
             <p className="lead"><a href="#" className="text-primary ml-2" onClick={() => toggleLogin()}><strong>Inicie sesión</strong></a> para comenzar a cambiar su vida.</p>
@@ -33,6 +36,7 @@ function RegisteredOkComponent({setUser}) {
                     </ModalBody>
             </Modal>
         </div>
+      </>
         
     )
 }

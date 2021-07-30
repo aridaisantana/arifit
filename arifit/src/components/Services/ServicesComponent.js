@@ -17,7 +17,7 @@ function Services({user}) {
                     fontSize: "30px", 
                     color:"rgb(169, 67, 224)"
                     }}>
-                    Perfil de {user.usuario.nombre}
+                    Progreso de {user.usuario.nombre.toUpperCase()}
                 </h1>
                 <div id="servicesContainer">
                     <div className="container-xl">
@@ -30,7 +30,9 @@ function Services({user}) {
                             </div>
                         </div>
                         <div className="row">
-                            
+                            <div className="col-sm-12 col-xs-12 mb-4 mt-5 text-center">
+                                <h1> Comparativa últimas 2 fotos </h1>
+                            </div>
                         </div>
                     </div>
                 </div>

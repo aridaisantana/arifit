@@ -1,5 +1,7 @@
 import React, {useState} from "react";
 import { ResponsiveLine } from "@nivo/line";
+import Title from "./Title";
+import { useTheme } from '@material-ui/core/styles';
 
 async function getWeights(email) {
   return fetch('/getWeights', {
@@ -14,6 +16,8 @@ async function getWeights(email) {
 
 
 const WeightsChart = ({user, updateWeights, setUpdateWeights}) => {
+
+    const theme = useTheme();
 
     const [createDataResult, setCreateDataResult] = useState([]);
     const [isFirstTime, setIsFirstTime] = useState(true);
@@ -54,6 +58,7 @@ const WeightsChart = ({user, updateWeights, setUpdateWeights}) => {
 
   return (
     <div style={{ height: 350 }} className="App">
+    <Title>Mejora del peso</Title>
     <ResponsiveLine
       data={createDataResult}
       margin={{ top: 50, right: 110, bottom: 50, left: 60 }}
@@ -122,7 +127,7 @@ const WeightsChart = ({user, updateWeights, setUpdateWeights}) => {
         }
       ]}
     />
-    )
+    
   </div>
 );
 };

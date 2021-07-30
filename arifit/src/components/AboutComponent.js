@@ -3,12 +3,13 @@ import { Breadcrumb, BreadcrumbItem, Card, CardBody, CardHeader, Media } from 'r
 import { Link } from 'react-router-dom';
 import image from "../images/aridai.jpeg";
 import Footer from "./FooterComponent";
+import Header from './HeaderComponent';
 
-
-function About() {
+function About({user, setUser}) {
 
         return(
             <>
+            <Header user={user} setUser={setUser} />
             <div className="container">
                 <div className="row">
                     <Breadcrumb style={{marginTop:"20px"}}>

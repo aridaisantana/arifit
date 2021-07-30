@@ -5,12 +5,13 @@ import {BiDumbbell} from "react-icons/bi";
 import {FaDumbbell} from "react-icons/fa";
 import {FcSportsMode} from "react-icons/fc";
 import Footer from "./FooterComponent";
-
+import Header from './HeaderComponent';
 
 function HomeComponent({user, setUser}) {
 
         return (
             <>
+                <Header user={user} setUser={setUser} />
                 <div className="hero">
                     <div className="hero_content">
                         <h1>Arifit</h1>

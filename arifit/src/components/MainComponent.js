@@ -7,6 +7,7 @@ import Register from "./Sesion/RegisterComponent";
 import Registered from "./Sesion/RegisteredOkComponent";
 import Services from "./Services/ServicesComponent";
 import About from "./AboutComponent";
+import Dashboard from './Services/Dashboard';
 
 function MainComponent() {
 
@@ -21,14 +22,13 @@ function MainComponent() {
     }, [])
 
     return (
-        <div id="wrapper">
-            <Header user={user} setUser={setUser} />
+        <div>
             <Switch>
                 <Route path="/home" component={() => <HomeComponent user={user} setUser={setUser}/>}/>
-                <Route exact path="/aboutus" component={About} />
-                <Route exact path="/register/:rol" component={() => <Register setUser={setUser}/>}/>
-                <Route exact path="/registrocompleto" component={() => <Registered setUser={setUser}/>} />
-                <Route exact path="/service/:rol" component={() => <Services user={user} />} />
+                <Route exact path="/aboutus" component={() => <About user={user} setUser={setUser}/>} />
+                <Route exact path="/register/:rol" component={() => <Register user={user} setUser={setUser}/>}/>
+                <Route exact path="/registrocompleto" component={() => <Registered user={user} setUser={setUser}/>} />
+                <Route exact path="/service/:rol" component={() => <Dashboard user={user} />} />
                 <Redirect to="/home" />
             </Switch>
         </div>
