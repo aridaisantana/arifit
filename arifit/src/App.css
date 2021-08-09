@@ -338,26 +338,41 @@ button.blue:active {
     animation-delay: 1s;
   }
 
-  #updateInformation{
-    border-radius: 5%;
-    background-color: rgba(82, 179, 227, 0.3);
-  }
-
   .hidden{
     display: none;
   }
 
   .fileLabel{
-    background-color: rgba(169, 67, 224, 0.3);
+    background-color: rgba(0, 123, 255, 0.8);
     border-radius: 10px;
     border: 1px solid;
     padding: 4px;
     margin-top: 4px;
+    color: black;
   }
 
   .fileLabel:hover{
     
-    background-color:rgba(169, 67, 224, 0.7);
+    background-color:rgba(0, 123, 255, 0.3);
+  }
+
+  .addWeightsContainer{
+    position: relative;
+  }
+
+  .updateButtom{
+    border: 0;
+    text-align: center;
+    display: inline-block;
+    padding: 14px;
+    margin: 7px;
+    color: #ffffff;
+    background-color: #36a2eb;
+    border-radius: 8px;
+   font-family: "proxima-nova-soft", sans-serif;
+    font-weight: 600;
+    text-decoration: none;
+    transition: box-shadow 200ms ease-out;
   }
 
 @media screen and (max-width: 1100px){

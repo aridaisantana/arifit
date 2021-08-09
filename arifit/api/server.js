@@ -23,9 +23,10 @@ mongoose.connect(connection,{ useNewUrlParser: true, useUnifiedTopology: true, u
     .then(() => console.log("Database Connected Successfully"))
     .catch(err => console.log(err));
 
-app.get('*', (req, res) => {
+/*app.get('*', (req, res) => {
   res.sendFile(path.resolve(__dirname, '../build/index.html'));
 });
+*/
 
 app.listen(process.env.PORT, ()=> {
   console.log("Escuchando en puerto" + process.env.PORT);

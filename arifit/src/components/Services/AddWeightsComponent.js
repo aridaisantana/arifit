@@ -1,4 +1,8 @@
 import React, {useState} from 'react';
+import Link from '@material-ui/core/Link';
+import { makeStyles } from '@material-ui/core/styles';
+import Typography from '@material-ui/core/Typography';
+import Title from './Title';
 
 async function addWeights(credentials) {
     return fetch('/addWeights', {
@@ -10,6 +14,12 @@ async function addWeights(credentials) {
       })
         .then(data => data.json())
 }
+
+const useStyles = makeStyles({
+    depositContext: {
+      flex: 1,
+    },
+});
 
 const AddWeights = ({user, updateWeights, setUpdateWeights}) => {
 
@@ -27,31 +37,38 @@ const AddWeights = ({user, updateWeights, setUpdateWeights}) => {
         }
     }
 
+    const classes = useStyles();
+
     return ( 
-        <div>
-            <form id="updateInformation" onSubmit={(e) => handleSubmit(e)}>
-                <div className="text-center p-3">
-                    <h4 style={{color:"rgba(169, 67, 224, 0.8)"}}>Actualizar Peso</h4>
-                    <label>Inserte su nuevo peso: </label>
-                    <input 
-                    style={{width:"30%", borderRadius:"10%", borderColor:"steelblue"}} 
-                    name="weight"
-                    value={newWeight}
-                    onChange={(e) => {
-                        setNewWeight(e.target.value);
-                    }}
-                    type="number" 
-                    min="30" 
-                    required
-                    />
-                    <input type="file" id="files" className="hidden"/>
-                    <label className="fileLabel" htmlFor="files">Subir imagen del cambio</label>
-                    <div className="mt-3">
-                        <input type="submit" className="form-button-submit-reset fourth" value="Actualizar Información" />
+        <React.Fragment>
+            <Title>Actualizar Información</Title>
+            <div>
+                <form onSubmit={(e) => handleSubmit(e)}>
+                    <div>
+                        <Typography component="p" variant="h6">Inserte su nuevo peso: </Typography>
+                        <div className="addWeightsContainer">
+                            <input 
+                            style={{width:"100%", borderRadius:"10%", borderColor:"steelblue"}} 
+                            name="weight"
+                            value={newWeight}
+                            onChange={(e) => {
+                                setNewWeight(e.target.value);
+                            }}
+                            type="number" 
+                            min="30" 
+                            required
+                            />
+                             <br />
+                            <input type="file" id="files" className="hidden"/>
+                            <Typography style={{marginTop: "5%"}}color="textSecondary" className={classes.depositContext}><label className="updateButtom" htmlFor="files">Subir imagen del cambio</label></Typography>
+                        </div>
+                        <div style={{marginTop:"50%"}}>
+                            <input className="updateButtom" type="submit" value="Actualizar Información" />      
+                        </div>
                     </div>
-                </div>
-            </form>
-        </div>
+                </form>
+            </div>
+        </React.Fragment>
      );
 }
  

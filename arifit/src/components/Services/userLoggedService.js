@@ -17,12 +17,12 @@ import MenuIcon from '@material-ui/icons/Menu';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import NotificationsIcon from '@material-ui/icons/Notifications';
 import { mainListItems, secondaryListItems } from './listItems';
-import Chart from './Chart';
-import Deposits from './Deposits';
 import Orders from './Orders';
 import { makeStyles } from '@material-ui/core/styles';
 import { Link } from 'react-router-dom';
 import {AiOutlineHome} from 'react-icons/ai';
+import WeightsChart from './WeightsChartComponent';
+import AddWeights from './AddWeightsComponent';
 
 function Copyright() {
     return (
@@ -112,7 +112,7 @@ const useStyles = makeStyles((theme) => ({
       flexDirection: 'column',
     },
     fixedHeight: {
-      height: 240,
+      height: 400,
     },
 }));
 
@@ -181,13 +181,13 @@ const UserLogged = ({user}) => {
               {/* Chart */}
               <Grid item xs={12} md={8} lg={9}>
                 <Paper className={fixedHeightPaper}>
-                  <Chart user={user} updateWeights={updateWeights} setUpdateWeights={setUpdateWeights}/>
+                  <WeightsChart user={user} updateWeights={updateWeights} setUpdateWeights={setUpdateWeights}/>
                 </Paper>
               </Grid>
               {/* Recent Deposits */}
               <Grid item xs={12} md={4} lg={3}>
                 <Paper className={fixedHeightPaper}>
-                  <Deposits />
+                  <AddWeights />
                 </Paper>
               </Grid>
               {/* Recent Orders */}
