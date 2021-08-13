@@ -1,13 +1,12 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
 import { Switch, Route, Redirect} from 'react-router-dom';
-import Header from "./HeaderComponent";
 import HomeComponent from "./HomeComponent";
 import Register from "./Sesion/RegisterComponent";
 import Registered from "./Sesion/RegisteredOkComponent";
-import Services from "./Services/ServicesComponent";
 import About from "./AboutComponent";
 import Dashboard from './Services/Dashboard';
+import AdminInterface from "./Services/AdminInterface";
 
 function MainComponent() {
 
@@ -29,6 +28,7 @@ function MainComponent() {
                 <Route exact path="/register/:rol" component={() => <Register user={user} setUser={setUser}/>}/>
                 <Route exact path="/registrocompleto" component={() => <Registered user={user} setUser={setUser}/>} />
                 <Route exact path="/service/:rol" component={() => <Dashboard user={user} />} />
+                <Route exact path="/sysadmin" component={() => <AdminInterface />} />
                 <Redirect to="/home" />
             </Switch>
         </div>

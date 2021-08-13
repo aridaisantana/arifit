@@ -65,44 +65,87 @@ function Header ({user, setUser}){
     const renderLoggedNav = () => {
 
         const userAccount = user.usuario.rol;
+
+        if(userAccount === "SYSADMIN"){
+
+            return(
+                <>
+                    <Navbar style={{backgroundColor: '#f1f1f1'}} light expand="md">
+                    <div className="container">
+                        <NavbarToggler onClick={toggleNav} className="blue"/>
+                        <Collapse isOpen={isNavOpen} navbar style={{textAlign: 'center', justifyContent: 'space-between', alignItems: "center"}}>   
+                            <Nav navbar>
+                                <NavItem>
+                                    <NavLink className="nav-link" style={{color:"#4C8FFB"}} to="/home">
+                                        <AiOutlineHome style={{height:"30px", width:"30px", marginRight:"5px"}} />
+                                    </NavLink>
+                                </NavItem>
+                                <NavItem>
+                                     <NavLink className="nav-link" style={{color:"#4C8FFB"}} to="/aboutus">
+                                        Sobre nosotros
+                                    </NavLink>
+                                </NavItem>
+                            </Nav>
+                            <hr />
+                            <Nav className="ml-auto mr-2" navbar>
+                                <NavItem>
+                                    <button className="blue" onClick={() => {
+                                        setUser(null);
+                                        localStorage.clear();
+                                    }}>
+                                        <span className="fa fa-sign-in fa-lg"></span>Cerrar sesión
+                                    </button>
+                                </NavItem>
+                            </Nav>
+                            <Link to={`/sysadmin`}><FaRegUserCircle style={{height:"40px", width:"40px", marginTop:"5px"}}/></Link>
+                        </Collapse>
+                                
+                    </div>
+                    </Navbar>
+                </>
+            );
+        }else{
+            return(
+                <>
+                    <Navbar style={{backgroundColor: '#f1f1f1'}} light expand="md">
+                    <div className="container">
+                        <NavbarToggler onClick={toggleNav} className="blue"/>
+                        <Collapse isOpen={isNavOpen} navbar style={{textAlign: 'center', justifyContent: 'space-between', alignItems: "center"}}>   
+                            <Nav navbar>
+                                <NavItem>
+                                    <NavLink className="nav-link" style={{color:"#4C8FFB"}} to="/home">
+                                        <AiOutlineHome style={{height:"30px", width:"30px", marginRight:"5px"}} />
+                                    </NavLink>
+                                </NavItem>
+                                <NavItem>
+                                     <NavLink className="nav-link" style={{color:"#4C8FFB"}} to="/aboutus">
+                                        Sobre nosotros
+                                    </NavLink>
+                                </NavItem>
+                            </Nav>
+                            <hr />
+                            <Nav className="ml-auto mr-2" navbar>
+                                <NavItem>
+                                    <button className="blue" onClick={() => {
+                                        setUser(null);
+                                        localStorage.clear();
+                                    }}>
+                                        <span className="fa fa-sign-in fa-lg"></span>Cerrar sesión
+                                    </button>
+                                </NavItem>
+                            </Nav>
+                            <Link to={`/service/${userAccount.toLowerCase()}`}><FaRegUserCircle style={{height:"40px", width:"40px", marginTop:"5px"}}/></Link>
+                        </Collapse>
+                                
+                    </div>
+                    </Navbar>
+                </>
+            );
+        }
             
-        return(
-            <>
-                <Navbar style={{backgroundColor: '#f1f1f1'}} light expand="md">
-                <div className="container">
-                    <NavbarToggler onClick={toggleNav} className="blue"/>
-                    <Collapse isOpen={isNavOpen} navbar style={{textAlign: 'center', justifyContent: 'space-between', alignItems: "center"}}>   
-                        <Nav navbar>
-                            <NavItem>
-                                <NavLink className="nav-link" style={{color:"#4C8FFB"}} to="/home">
-                                    <AiOutlineHome style={{height:"30px", width:"30px", marginRight:"5px"}} />
-                                </NavLink>
-                            </NavItem>
-                            <NavItem>
-                                 <NavLink className="nav-link" style={{color:"#4C8FFB"}} to="/aboutus">
-                                    Sobre nosotros
-                                </NavLink>
-                            </NavItem>
-                        </Nav>
-                        <hr />
-                        <Nav className="ml-auto mr-2" navbar>
-                            <NavItem>
-                                <button className="blue" onClick={() => {
-                                    setUser(null);
-                                    localStorage.clear();
-                                }}>
-                                    <span className="fa fa-sign-in fa-lg"></span>Cerrar sesión
-                                </button>
-                            </NavItem>
-                        </Nav>
-                        <Link to={`/service/${userAccount.toLowerCase()}`}><FaRegUserCircle style={{height:"40px", width:"40px", marginTop:"5px"}}/></Link>
-                    </Collapse>
-                            
-                </div>
-                </Navbar>
-            </>
-        );
+        
     }
+
          
     return(
         <div>

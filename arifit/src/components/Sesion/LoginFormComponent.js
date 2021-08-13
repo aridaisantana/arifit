@@ -38,7 +38,8 @@ export default function LoginForm({setUser, setIsModalOpen}) {
           setUser(user);
           window.localStorage.setItem('loggedUser', JSON.stringify(user));
           setIsModalOpen(false);
-          history.push(`/service/${user.usuario.rol.toLowerCase()}`);
+          user.usuario.rol !== "SYSADMIN" ? history.push(`/service/${user.usuario.rol.toLowerCase()}`) : history.push("/sysadmin");
+          
         }
         
         
