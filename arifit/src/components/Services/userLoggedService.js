@@ -187,7 +187,7 @@ const UserLogged = ({user}) => {
               {/* Recent Deposits */}
               <Grid item xs={12} md={4} lg={3}>
                 <Paper className={fixedHeightPaper}>
-                  <AddWeights />
+                  <AddWeights user={user} updateWeights={updateWeights} setUpdateWeights={setUpdateWeights}/>
                 </Paper>
               </Grid>
               {/* Recent Orders */}

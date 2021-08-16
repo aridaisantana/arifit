@@ -9,5 +9,6 @@ app.use(require('./addRoutine'));
 app.use(require('./addDiet'));
 app.use(require('./deleteRoutine'));
 app.use(require('./deleteDiet'));
+app.use(require('./getRoutine'));
 
 module.exports = app;

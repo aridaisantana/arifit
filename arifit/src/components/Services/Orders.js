@@ -41,6 +41,7 @@ export default function Orders() {
           <TableRow>
             <TableCell>Fecha</TableCell>
             <TableCell>Dieta</TableCell>
+            <TableCell>Fecha</TableCell>
             <TableCell>Rutina</TableCell>
           </TableRow>
         </TableHead>

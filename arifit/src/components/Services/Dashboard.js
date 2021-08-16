@@ -4,7 +4,7 @@ import UserNotLogged from './userNotLogged';
 
 
 export default function Dashboard({user}) {
- 
+  
   return (
     <div>
       {
