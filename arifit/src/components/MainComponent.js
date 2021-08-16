@@ -6,7 +6,7 @@ import Register from "./Sesion/RegisterComponent";
 import Registered from "./Sesion/RegisteredOkComponent";
 import About from "./AboutComponent";
 import Dashboard from './Services/Dashboard';
-import AdminInterface from "./Services/AdminInterface";
+import AdminInterface from "./Services/AdminInterface/AdminInterface";
 
 function MainComponent() {
 

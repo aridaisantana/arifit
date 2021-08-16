@@ -5,5 +5,9 @@ app.use(require('./register'));
 app.use(require('./addWeights'));
 app.use(require('./getWeights'));
 app.use(require('./getUsers'));
+app.use(require('./addRoutine'));
+app.use(require('./addDiet'));
+app.use(require('./deleteRoutine'));
+app.use(require('./deleteDiet'));
 
 module.exports = app;

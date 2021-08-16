@@ -29,7 +29,7 @@ const AddWeights = ({user, updateWeights, setUpdateWeights}) => {
     
     const handleSubmit = async (e) =>{
         e.preventDefault();
-        let sendedWeight = await await addWeights({email, newWeight});
+        let sendedWeight = await addWeights({email, newWeight});
         
         if(sendedWeight.ok === true){
             alert("works fine");

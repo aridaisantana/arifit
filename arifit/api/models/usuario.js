@@ -35,18 +35,25 @@ let usuarioSchema = new Schema({
     },
     weights: [ 
         {
+            id: Schema.Types.ObjectId,
             weight : {type: Array}, 
             date : { type: Date, default: Date.now }
         }
     ],
-    diet: {
-        type: String,
-        data: Buffer
-    },
-    training: {
-        type: String,
-        data: Buffer
-    }
+    diet: [ 
+        {
+            id: Schema.Types.ObjectId,
+            diet : {type: String}, 
+            date : { type: Date, default: Date.now }
+        }
+    ],
+    training: [ 
+        {   
+            id: Schema.Types.ObjectId,
+            training : {type: String}, 
+            date : { type: Date, default: Date.now }
+        }
+    ]
     
 });
 
